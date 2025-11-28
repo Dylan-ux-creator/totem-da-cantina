@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cantina Inteligente</title>
+
   <style>
     :root {
       --primary: #007ACC;
       --light-blue: #e6f3fc;
-      --background: #f0f8ff;
+      --background: #fbfbfb;
       --text: #333;
       --white: #ffffff;
       --accent: #FF7F50;
     }
 
     body {
-      background-color: #cde6f7;
+      background-color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -27,7 +28,7 @@
     }
 
     .totem {
-      background-color: #000;
+      background-color: #00204f;
       border-radius: 30px;
       width: 900px;
       height: 600px;
@@ -55,15 +56,8 @@
       border-top-right-radius: 20px;
     }
 
-    header h2 {
-      margin: 6px 0 0;
-      font-size: 1.4em;
-    }
-
-    header p {
-      margin: 2px 0 6px;
-      font-size: 0.95em;
-    }
+    header h2 { margin: 6px 0 0; font-size: 1.4em; }
+    header p { margin: 2px 0 6px; font-size: 0.95em; }
 
     nav {
       display: flex;
@@ -100,9 +94,7 @@
       overflow-y: auto;
     }
 
-    .hidden {
-      display: none;
-    }
+    .hidden { display: none; }
 
     table {
       width: 100%;
@@ -127,9 +119,7 @@
       font-weight: 600;
     }
 
-    tr:nth-child(even) {
-      background-color: #f5faff;
-    }
+    tr:nth-child(even) { background-color: #f5faff; }
 
     ul {
       list-style: none;
@@ -147,18 +137,12 @@
       padding: 16px;
       border-radius: 8px;
       font-size: 1.05em;
-      line-height: 1.6;
       box-shadow: 0 0 4px rgba(0,0,0,0.1);
       margin-top: 10px;
     }
 
-    .chart-item {
-      margin-bottom: 14px;
-    }
-
-    .chart-item strong {
-      color: #003f66;
-    }
+    .chart-item { margin-bottom: 14px; }
+    .chart-item strong { color: #003f66; }
 
     .highlight {
       background-color: var(--accent);
@@ -170,15 +154,7 @@
       margin-top: 14px;
     }
 
-    .img-consciencia {
-      display: block;
-      max-width: 200px;
-      margin: 0 auto 10px auto;
-    }
-
-    .form-box {
-      margin-top: 14px;
-    }
+    .form-box { margin-top: 14px; }
 
     textarea {
       width: 100%;
@@ -220,8 +196,21 @@
       background-color: #f5f5f5;
       border-top: 1px solid #ccc;
     }
+
+    .graficos-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .chart-box {
+      width: 40%;
+      height: 250px;
+    }
   </style>
 </head>
+
 <body>
 
   <div class="totem">
@@ -238,6 +227,7 @@
       </nav>
 
       <div class="content">
+
         <!-- CARDÁPIO -->
         <div id="cardapio" class="section">
           <h3>Cardápio da Semana</h3>
@@ -251,36 +241,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Seg</td>
-                <td>Frutas e suco</td>
-                <td>Arroz, feijão, frango, salada</td>
-                <td>Bolo de cenoura, leite</td>
-              </tr>
-              <tr>
-                <td>Ter</td>
-                <td>Iogurte e granola</td>
-                <td>Macarrão, carne moída, legumes</td>
-                <td>Sanduíche e suco</td>
-              </tr>
-              <tr>
-                <td>Qua</td>
-                <td>Banana e aveia</td>
-                <td>Carne assada, arroz, feijão</td>
-                <td>Bolacha e leite</td>
-              </tr>
-              <tr>
-                <td>Qui</td>
-                <td>Maçã e suco</td>
-                <td>Escondidinho de frango</td>
-                <td>Frutas picadas</td>
-              </tr>
-              <tr>
-                <td>Sex</td>
-                <td>Pão e leite</td>
-                <td>Feijoada leve, couve</td>
-                <td>Bolo de milho e suco</td>
-              </tr>
+              <tr><td>Seg</td><td>Frutas e suco</td><td>Arroz, feijão, frango, salada</td><td>Bolo de cenoura, leite</td></tr>
+              <tr><td>Ter</td><td>Iogurte e granola</td><td>Macarrão, carne moída, legumes</td><td>Sanduíche e suco</td></tr>
+              <tr><td>Qua</td><td>Banana e aveia</td><td>Carne assada, arroz, feijão</td><td>Bolacha e leite</td></tr>
+              <tr><td>Qui</td><td>Maçã e suco</td><td>Escondidinho de frango</td><td>Frutas picadas</td></tr>
+              <tr><td>Sex</td><td>Pão e leite</td><td>Feijoada leve, couve</td><td>Bolo de milho e suco</td></tr>
             </tbody>
           </table>
         </div>
@@ -306,44 +271,47 @@
 
         <!-- NOSSA COZINHA -->
         <div id="graficos" class="section hidden">
-  <h3>Nossa Cozinha</h3>
+          <h3>Nossa Cozinha</h3>
 
-  <!-- GRÁFICOS LADO A LADO E REDUZIDOS -->
-  <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start;">
-    <div class="chart-box" style="width: 40%; height: 250px;">
-      <canvas id="graficoItensConsumidos"></canvas>
-    </div>
-    <div class="chart-box" style="width: 40%; height: 250px;">
-      <canvas id="graficoDesperdicio"></canvas>
-    </div>
-  </div>
+          <div class="graficos-container">
+            <div class="chart-box">
+              <canvas id="graficoItensConsumidos"></canvas>
+            </div>
+            <div class="chart-box">
+              <canvas id="graficoDesperdicio"></canvas>
+            </div>
+          </div>
 
-  <!-- TEXTO DE CONSCIENTIZAÇÃO -->
-  <div class="chart-box highlight" style="margin-top: 20px;">
-    <div class="chart-item">
-      <strong>Desperdício estimado:</strong> Cerca de <strong>12,5 kg</strong> de alimentos foram descartados nesta semana.
-    </div>
-    <div class="chart-item">
-      <strong>Meta de redução:</strong> Diminuir em <strong>10%</strong> nos próximos 2 meses.
-      <br />
-      <strong>Ações previstas:</strong> conscientização entre os alunos, porções mais adequadas e melhor planejamento dos cardápios.
-    </div>
-  </div>
-</div>
+          <div class="chart-box highlight">
+            <div class="chart-item">
+              <strong>Desperdício estimado:</strong> Cerca de <strong>12,5 kg</strong> de alimentos foram descartados nesta semana.
+            </div>
+            <div class="chart-item">
+              <strong>Meta de redução:</strong> Reduzir <strong>10%</strong> nos próximos 2 meses.
+              <br />
+              <strong>Ações previstas:</strong> Conscientização, porções adequadas e planejamento dos cardápios.
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <footer>
         &copy; 2025 Cantina Escolar
       </footer>
+
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <script>
     function show(sectionId) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(sec => sec.classList.add('hidden'));
+
       document.getElementById(sectionId).classList.remove('hidden');
+
       document.getElementById('msg').innerText = '';
       document.getElementById('msg').style.color = 'green';
     }
@@ -351,6 +319,7 @@
     function enviarSugestao() {
       const sugestao = document.getElementById("sugestao").value.trim();
       const msg = document.getElementById("msg");
+
       if (sugestao.length > 0) {
         msg.style.color = "green";
         msg.innerText = "✔ Sugestão enviada com sucesso!";
@@ -364,69 +333,43 @@
     document.addEventListener("DOMContentLoaded", () => {
       show("cardapio");
 
-      // Configuração dos gráficos com Chart.js
-
-      // Gráfico de barras: itens mais consumidos
+      // GRÁFICO 1
       const ctx1 = document.getElementById('graficoItensConsumidos').getContext('2d');
       new Chart(ctx1, {
         type: 'bar',
         data: {
-          labels: ['Arroz branco', 'Frango grelhado', 'Suco natural de laranja'],
+          labels: ['Arroz branco', 'Frango grelhado', 'Suco natural'],
           datasets: [{
-            label: 'Quantidade Servida (porções)',
-            data: [300, 250, 200],  // exemplo de valores
-            backgroundColor: [
-              'rgba(0, 122, 204, 0.7)',
-              'rgba(0, 122, 204, 0.7)',
-              'rgba(0, 122, 204, 0.7)'
-            ],
-            borderColor: [
-              'rgba(0, 122, 204, 1)',
-              'rgba(0, 122, 204, 1)',
-              'rgba(0, 122, 204, 1)'
-            ],
+            label: 'Porções Servidas',
+            data: [300, 250, 200],
+            backgroundColor: ['rgba(0,122,204,0.7)'],
+            borderColor: ['rgba(0,122,204,1)'],
             borderWidth: 1
           }]
         },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              title: {
-                display: true,
-                text: 'Número de porções'
-              }
-            }
-          }
-        }
+        options: { scales: { y: { beginAtZero: true } } }
       });
 
-      // Gráfico de pizza: desperdício vs consumo
+      // GRÁFICO 2
       const ctx2 = document.getElementById('graficoDesperdicio').getContext('2d');
       new Chart(ctx2, {
         type: 'pie',
         data: {
           labels: ['Consumido', 'Desperdiçado'],
           datasets: [{
-            data: [480 - 50, 50],  // se quiser exemplo: de 480 refeições, 50 foram desperdiçadas
+            data: [430, 50],
             backgroundColor: [
-              'rgba(0, 122, 204, 0.7)',
-              'rgba(255, 127, 80, 0.7)'
+              'rgba(0,122,204,0.7)',
+              'rgba(255,127,80,0.7)'
             ],
             borderColor: [
-              'rgba(0, 122, 204, 1)',
-              'rgba(255, 127, 80, 1)'
+              'rgba(0,122,204,1)',
+              'rgba(255,127,80,1)'
             ],
             borderWidth: 1
           }]
         },
-        options: {
-          plugins: {
-            legend: {
-              position: 'bottom',
-            }
-          }
-        }
+        options: { plugins: { legend: { position: 'bottom' } } }
       });
 
     });
